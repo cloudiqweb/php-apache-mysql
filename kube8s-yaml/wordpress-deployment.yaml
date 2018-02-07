@@ -2,7 +2,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: wordpress
-  name: wordpress-mysql
+  namespace: wordpress-mysql
   labels:
     app: wordpress
 spec:
@@ -17,6 +17,7 @@ apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
   name: wp-pv-claim
+  namespace: wordpress-mysql
   labels:
     app: wordpress
 spec:
@@ -30,6 +31,7 @@ apiVersion: apps/v1beta1 # for versions before 1.9.0 use apps/v1beta2. azure sup
 kind: Deployment
 metadata:
   name: wordpress
+  namespace: wordpress-mysql
   labels:
     app: wordpress
 spec:
